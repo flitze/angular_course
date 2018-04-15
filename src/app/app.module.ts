@@ -32,6 +32,8 @@ import { ContactComponent } from './contact/contact.component';
 
 import { DishService } from './services/dish.service';
 
+//import { RouterOutlet } from '@angular/router';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +65,8 @@ import { DishService } from './services/dish.service';
     MatIconModule, 
     MatProgressSpinnerModule, 
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AppRoutingModule
   ],
   providers: [ DishService ],
   bootstrap: [AppComponent]
