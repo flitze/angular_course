@@ -36,6 +36,7 @@ import { LeaderService } from './services/leader.service';
 
 //import { RouterOutlet } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +75,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   providers: [ DishService,
     PromotionService,
     LeaderService ],
+    entryComponents: [
+      LoginComponent
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
