@@ -19,6 +19,7 @@ import {  MatButtonModule,
           MatProgressSpinnerModule, 
           MatDialogModule } from '@angular/material'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import 'hammerjs';
 import { AppComponent } from './app.component';
@@ -70,7 +71,8 @@ import { LoginComponent } from './login/login.component';
     MatProgressSpinnerModule, 
     MatDialogModule,
     FlexLayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ DishService,
     PromotionService,
