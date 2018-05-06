@@ -3,7 +3,7 @@
     fxLayout.sm="column" 
     fxLayout.xs="column"
     fxLayoutAlign.gt-mat="space-around center"
-    fxLayoutGap="10px"
+    fxLayoutGap="50px"
     fxLayoutGap.xs="0">
   
   <div fxFlex="40">
@@ -33,7 +33,7 @@
       </div>
   </div>
 
-  <div fxFlex="40">
+  <div fxFlex="40" fxFlexOffset="10px">
     <mat-list *ngIf="dish">
       <h1>Comments</h1>
       <mat-list-item *ngFor="let comment of dish.comments">
@@ -47,5 +47,28 @@
     <mat-spinner></mat-spinner>
     <h4>Loading . . . Please Wait</h4>
   </div>
-
 </div>
+
+<div class="container">
+  <div class="form-size">
+    <form action="">
+      <p>
+        <mat-input-container class="full-width">
+          <input matInput placeholder="name" type="text" required>
+        </mat-input-container>
+      </p>
+      <p>
+          <mat-slider min="1" max="5" step="1.0" value="5.0" tickInterval="1"></mat-slider>
+      </p>
+      <p>
+        <mat-input-container class="full-width">
+          <textarea matInput placeholder="Your Comment" id="" rows="12"></textarea>
+        </mat-input-container>
+      </p>
+    </form>
+  </div>
+  
+  
+</div>
+
+
