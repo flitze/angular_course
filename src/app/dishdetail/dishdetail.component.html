@@ -14,7 +14,7 @@
               <h3>{{ dish.name | uppercase }}</h3>
             </mat-card-title>
           </mat-card-header>
-          <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+          <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
           <mat-card-content>
             <p>{{ dish.description }}</p>
           </mat-card-content>
@@ -58,8 +58,6 @@
 
 <div class="container">
   <div class="form-size">
-    <p>{{ commentForm.value | json }} {{commentForm.status | json}}</p>
-    
     <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-input-container class="full-width"
@@ -77,7 +75,7 @@
       </p> 
       <p>
         <mat-input-container class="full-width">
-          <textarea matInput formControlName="comment" placeholder="Your Comment" id="" rows="12"></textarea>
+          <textarea matInput formControlName="comment" placeholder="Your Comment" id="" rows="12" reqired></textarea>
         </mat-input-container>
         <mat-hint>
           <span [hidden]="!(formErrors.comment)">

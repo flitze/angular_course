@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -38,6 +39,9 @@ import { LeaderService } from './services/leader.service';
 //import { RouterOutlet } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+
+import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,11 +76,14 @@ import { LoginComponent } from './login/login.component';
     MatDialogModule,
     FlexLayoutModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [ DishService,
     PromotionService,
-    LeaderService ],
+    LeaderService,
+    { provide: 'BaseURL', useValue: baseURL},
+    ProcessHTTPMsgService ],
     entryComponents: [
       LoginComponent
     ],
