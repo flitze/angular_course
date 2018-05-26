@@ -49,19 +49,6 @@
           <p mat-line>-- {{commentForm.get('author').value}}</p>
       </mat-list-item>
     </mat-list>
-  </div>
-  <div [hidden]="dish ||errMess">
-    <mat-spinner></mat-spinner>
-    <h4>Loading . . . Please Wait</h4>
-  </div>
-  <div *ngIf="errMess">
-    <h2>Error</h2>
-    <h4>{{errMess}}</h4>
-  </div>
-</div>
-
-<div class="container">
-  <div class="form-size">
     <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-input-container class="full-width"
@@ -75,11 +62,11 @@
         </mat-hint>
       </p>
       <p>
-        <mat-slider matInput formControlName="rating" min="1" max="5" step="1.0" value="5.0" tickInterval="1"></mat-slider>
+        <mat-slider matInput formControlName="rating" min="1" max="5" step="1.0" value="5.0" thumbLabel tickInterval="1"></mat-slider>
       </p> 
       <p>
         <mat-input-container class="full-width">
-          <textarea matInput formControlName="comment" placeholder="Your Comment" id="" rows="12" reqired></textarea>
+          <textarea matInput formControlName="comment" placeholder="Your Comment" id="" rows="12" required></textarea>
         </mat-input-container>
         <mat-hint>
           <span [hidden]="!(formErrors.comment)">
@@ -90,8 +77,15 @@
       <button mat-button class="background-primary text-floral-white" type="submit" [disabled]="commentForm.invalid">Submit</button>
     </form>
   </div>
-  
-  
+  <div [hidden]="dish ||errMess">
+    <mat-spinner></mat-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
+  <div *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
+  </div>
 </div>
+
 
 
