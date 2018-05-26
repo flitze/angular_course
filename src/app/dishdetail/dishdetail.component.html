@@ -62,11 +62,11 @@
         </mat-hint>
       </p>
       <p>
-        <mat-slider matInput formControlName="rating" min="1" max="5" step="1.0" value="5.0" tickInterval="1"></mat-slider>
+        <mat-slider matInput formControlName="rating" min="1" max="5" step="1.0" value="5.0" thumbLabel tickInterval="1"></mat-slider>
       </p> 
       <p>
         <mat-input-container class="full-width">
-          <textarea matInput formControlName="comment" placeholder="Your Comment" id="" rows="12"></textarea>
+          <textarea matInput formControlName="comment" placeholder="Your Comment" id="" rows="12" required></textarea>
         </mat-input-container>
         <mat-hint>
           <span [hidden]="!(formErrors.comment)">
