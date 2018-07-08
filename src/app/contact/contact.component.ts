@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
+import { FeedbackService } from '../services/feedback.service';
 import { flyInOut } from '../animations/app.animation';
 @Component({
   selector: 'app-contact',
@@ -18,10 +19,14 @@ export class ContactComponent implements OnInit {
 
   feedbackForm: FormGroup;
   feedback: Feedback;
+  postedFeedback: Feedback;
+  showFormData: Boolean;
   contactType = ContactType;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private feedbackService: FeedbackService) {
     this.createForm();
+    this.showFormData = false;
    }
 
   ngOnInit() {
@@ -87,10 +92,24 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    this.feedback = this.feedbackForm.value;
-    console.log(this.feedbackForm.value);
+  showFeedbackSuccess () {
+    setTimeout(() => {
+      this.showFormData = false;
+    }, 5000);
+  };
 
+  onSubmit() {
+    this.postedFeedback = this.feedbackForm.value;
+    //console.log(this.feedbackForm.value);
+    this.feedbackService.submitFeedback(this.postedFeedback)
+      .subscribe(feedback => {this.feedback = feedback; console.log("async feedback: " + this.feedback.firstname); });
+    
+    this.showFormData = true;
+    this.showFeedbackSuccess();
+    /*this.feedback
+      .subscribe(this.postedFeedback => this.feedbackService.submitFeedback(this.postedFeedback));*/
+    console.log("test: " + this.feedback);
+    
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
